@@ -2,16 +2,22 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../db.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const router = express.Router();
 
 // Regiser a new user
 router.post('/register', async (req, res) => {
     const { username, email, password, role } = req.body;
+
+    if (!username || !email || !password || !role)
+      return res.status(400).json({ error: 'All fields are required' });
     
     try {
         // Check if user already exists
-        const existingUser = await pool.query('SELECT * FROM users WHERE username = $1 OR email = $2', [username, useremail]);
+        const existingUser = await pool.query('SELECT * FROM users WHERE username = $1 OR email = $2', [username, email]);
         if (existingUser.rows.length > 0) {
             return res.status(400).json({ error: 'Username or email already exists' });
         }

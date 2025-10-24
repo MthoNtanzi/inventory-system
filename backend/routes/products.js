@@ -1,7 +1,7 @@
 import express from 'express';
 import pool from '../db.js';
 import { getAllProducts } from '../controllers/productsController.js';
-import { authenticateToken, isAdmin } from '../../middleware/authMiddleware.js';
+import { authenticateToken, isAdmin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 

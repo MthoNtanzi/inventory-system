@@ -55,8 +55,8 @@ To seed initial data:
 
 | Method | Endpoint | Description |
 |--------|-----------|-------------|
-| `POST` | `/api/users/register` | Register a new user (admin only) |
-| `POST` | `/api/users/login` | Login and receive JWT token |
+| `POST` | `/users/register` | Register a new user (admin only) |
+| `POST` | `/users/login` | Login and receive JWT token |
 
 **Login Response Example:**
 ```json

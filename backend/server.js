@@ -4,6 +4,7 @@ import cors from 'cors';
 import productsRouter from './routes/products.js';
 import stockRouter from './routes/stock.js';
 import salesRouter from './routes/sales.js';
+import userRouter from './routes/users.js';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use('/products', productsRouter);
 app.use('/stock', stockRouter);
 app.use('/sales', salesRouter);
+app.use('/users', userRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
